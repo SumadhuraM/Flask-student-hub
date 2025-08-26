@@ -6,11 +6,11 @@ A **Flask web app** to manage student records. Easily **add, view, edit, and del
 
 ## ✨ Features
 
-- 📝 Add, edit, delete, and view students
-- ✅ Client-side & server-side validation
-- 🎨 Responsive card-based UI
-- 💾 MySQL database integration
-- 💬 Flash messages for success & errors
+-  Add, edit, delete, and view students
+-  Client-side & server-side validation
+-  Responsive card-based UI
+-  MySQL database integration
+-  Flash messages for success & errors
 
 ---
 
