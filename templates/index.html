@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Students</title>
+<style>
+body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f0f4f8; margin:0; padding:20px; }
+header { background:#0077b6; color:white; padding:20px; text-align:center; font-size:2em; border-radius:10px; margin-bottom:20px; }
+.container { max-width:1000px; margin:auto; display:grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap:20px; }
+.card { background:white; border-radius:15px; padding:20px; box-shadow:0 6px 18px rgba(0,0,0,0.1); transition:0.3s; }
+.card:hover { box-shadow:0 10px 25px rgba(0,0,0,0.15); transform:translateY(-3px); }
+.card p { margin:8px 0; font-size:1.1em; }
+.actions { margin-top:10px; display:flex; gap:10px; }
+.action-btn { flex:1; padding:8px; border:none; border-radius:8px; cursor:pointer; color:white; font-weight:bold; transition:0.3s; }
+.edit-btn { background:#ffb703; }
+.edit-btn:hover { background:#faa307; }
+.delete-btn { background:#d62828; }
+.delete-btn:hover { background:#9d0208; }
+.add-btn { display:block; padding:12px 25px; background:#00b4d8; color:white; text-align:center; border-radius:10px; text-decoration:none; font-weight:bold; margin-bottom:20px; transition:0.3s; }
+.add-btn:hover { background:#0096c7; transform:translateY(-2px); }
+</style>
+</head>
+<body>
+<header>Student Management System</header>
+<div class="container">
+<a href="{{ url_for('add_student') }}" class="add-btn">+ Add New Student</a>
+
+{% for student in students %}
+<div class="card">
+    <p><strong>Name:</strong> {{ student.name }}</p>
+    <p><strong>USN:</strong> {{ student.usn }}</p>
+    <p><strong>Course:</strong> {{ student.course }}</p>
+    <p><strong>Semester:</strong> {{ student.semester }}</p>
+    <div>
+       <a href="{{ url_for('edit_student', student_id=student.id) }}">
+        <button class="action-btn edit-btn">Edit</button>
+       </a>
+
+       <a href="{{ url_for('delete_student', student_id=student.id) }}">
+         <button class="action-btn delete-btn">Delete</button>
+       </a>
+
+    </div>     
+</div>
+{% endfor %}
+
+</div>
+</body>
+</html>
